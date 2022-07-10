@@ -1,0 +1,13 @@
+package ro.ieti.licentaBE;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class LicentaBeApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(LicentaBeApplication.class, args);
+	}
+
+}
