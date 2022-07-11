@@ -6,4 +6,6 @@ import ro.ieti.licentaBE.entity.CustomerUser;
 
 @Repository
 public interface UserRepository extends JpaRepository<CustomerUser, Long> {
+
+    CustomerUser getCustomerUserByEmail(String email);
 }

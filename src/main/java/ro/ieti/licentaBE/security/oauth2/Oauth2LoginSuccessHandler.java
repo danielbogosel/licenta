@@ -29,7 +29,7 @@ public class Oauth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
             customUserService.createNewCustomerAfterLoginWithGoogle(email, name, AuthEnum.GOOGLE);
 
         } else {
-            customUserService.updateCustomerAfterLoginWithGoogle(customer, name, AuthEnum.GOOGLE);
+            customUserService.updateCustomerAfterLoginWithGoogle(customer,email,AuthEnum.GOOGLE);
         }
         super.onAuthenticationSuccess(request, response, authentication);
     }

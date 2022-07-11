@@ -39,7 +39,8 @@ public class CustomUserService {
     }
 
     public CustomerUser getCustomerByEmail(String email) {
-        return null;
+        CustomerUser user = userRepository.getCustomerUserByEmail(email);
+        return user;
     }
 
     public void updateCustomerAfterLoginWithGoogle(CustomerUser customer, String name, AuthEnum provider) {
