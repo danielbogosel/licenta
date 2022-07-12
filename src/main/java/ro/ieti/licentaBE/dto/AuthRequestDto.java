@@ -13,7 +13,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class AuthRequestDto {
     @NotBlank
-    private String username;
+    private String email;
     @NotBlank
     private String password;
 

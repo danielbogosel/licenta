@@ -7,8 +7,10 @@ import ro.ieti.licentaBE.entity.CustomerUser;
 import ro.ieti.licentaBE.repository.UserRepository;
 import ro.ieti.licentaBE.repository.UserRoleRepository;
 
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomUserService {
@@ -38,14 +40,14 @@ public class CustomUserService {
         return user;
     }
 
-    public CustomerUser getCustomerByEmail(String email) {
-        CustomerUser user = userRepository.getCustomerUserByEmail(email);
-        return user;
+    @Transactional
+    public Optional<CustomerUser> findUserByEmail(String email) {
+        return userRepository.findCustomerUserByEmail(email);
     }
 
-    public void updateCustomerAfterLoginWithGoogle(CustomerUser customer, String name, AuthEnum provider) {
-        customer.setFirstName(name);
-        customer.setAuthProvider(provider);
-        userRepository.save(customer);
+    public void updateCustomerAfterLoginWithGoogle(Optional<CustomerUser> customer, String name, AuthEnum provider) {
+        customer.get().setFirstName(name);
+        customer.get().setAuthProvider(provider);
+//        userRepository.save(customer);
     }
 }
